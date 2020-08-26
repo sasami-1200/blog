@@ -1,0 +1,80 @@
+---
+layout: post
+title: 学習履歴
+excerpt: 今日、学習したこと
+date: 2020-08-26
+tags: log javascript
+author: sasami
+---
+
+
+#わからないこと
+.コールバックがやっぱりわからない
+※一覧の処理が終わるのを待って、処理をする
+
+
+
+
+#新しく知ったこと
+##整数かどうか判定
+Number.isInteger(判定する値); -> true/false
+
+##配列かどうか判定
+Array.isArray(判定する値); -> true/false
+
+##Array.map
+map() メソッドは、与えられた関数を配列のすべての要素に対して呼び出し、その結果からなる新しい配列を生成する。
+>const array1 = [1, 4, 9, 16];
+>const map1 = array1.map(x => x * 2);
+
+##Array.every
+everyは配列が条件をすべて満たす場合にtrueを返す
+>const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>arr.every(value => value > 0) -> true
+>arr.every(value => value < 5) -> false
+
+##Array.some
+someは配列が条件を一つでも満たしていればtrueを返す
+>const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>arr.some(value => value < 10) -> true
+>arr.every(value => value > 11) -> false
+
+##Math.sqrt(val)
+sqrt関数は平方根を計算した結果を返します。
+>var num = Math.sqrt(9); -> num = 3
+
+
+##sort関数
+sort関数のデフォルトでは要素を文字列に変換して文字コード順に並び替える。
+※文字と数字が混在する場合、「数字→ローマ字→日本語」の順となる。
+>var array = [1975,11,20];
+>array.sort();
+
+###数値の昇順・降順でソートするには
+sort関数は引数に関数を指定でき、関数でソートのルールを定義できる。
+関数を指定すると、配列の要素2つを取り出して関数に引数として渡してソートする。
+
+関数の戻り値が正の時　→　引数1を引数2の後ろに並べ替え。
+関数の戻り値が負の時　→　引数1を引数2の前に並べ替え。
+関数の戻り値が0の時　→　何もしない。
+
+>var a = [33, 4, 1111, 222];
+>a.sort(function(a,b){  // 4, 33, 222, 1111（数値順）
+>    return a-b;        // a > bなら正の数、a == bなら0、a < bなら負の数が返る
+>});
+
+##配列名.shift()
+配列の先頭から要素を取り出して、配列からは削除する
+
+##配列名.pop()
+配列の末尾から要素を取り出して、配列からは削除する
+
+
+
+
+##Array.slice();
+配列を分割する方法
+>let array = ['1番目', '2番目', '3番目', '4番目', '5番目'];
+>let array2 = array.slice(2);  //3番目から最後まで
+>let array3 = array.slice(2,4);//3番目から4番目まで
+>let array4 = array.slice(); //全部
