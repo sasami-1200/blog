@@ -157,11 +157,16 @@ Number.isInteger(判定する値); -> true/false
 ##配列かどうか判定
 Array.isArray(判定する値); -> true/false
 
-##Array.map
+##Array.map()
 map() メソッドは、与えられた関数を配列のすべての要素に対して呼び出し、その結果からなる新しい配列を生成する。
 >const array1 = [1, 4, 9, 16];
 >const map1 = array1.map(x => x * 2);
 
+##Array.filter()
+filter() メソッドは、与えられた関数によって実装されたテストに合格したすべての配列からなる新しい配列を生成します。
+>const printNo1 = ["aaa","bbb","","ccc","","ddd"]
+>const printNo2 = printNo1.filter(word => word !== "");//空文字を削除して新しい配列を作る
+  
 ##Array.every
 everyは配列が条件をすべて満たす場合にtrueを返す
 >const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
