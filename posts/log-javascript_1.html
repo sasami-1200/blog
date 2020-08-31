@@ -228,12 +228,62 @@ sort関数は引数に関数を指定でき、関数でソートのルールを�
 ##配列名.pop()
 配列の末尾から要素を取り出して、配列からは削除する
 
+##Array.splice()
+既存の要素を取り除いたり、置き換えたり、新しい要素を追加したりすることで、配列の内容を変更します。
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+>exam)
+>###index 3 の位置 (4番目の要素) から一つ取り除く
+>let myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
+>let removed = myFish.splice(3, 1)
+>// removed は ["mandarin"]
+>// myFish は ["angel", "clown", "drum", "sturgeon"]
 
-
-
+  
 ##Array.slice();
 配列を分割する方法
 >let array = ['1番目', '2番目', '3番目', '4番目', '5番目'];
 >let array2 = array.slice(2);  //3番目から最後まで
 >let array3 = array.slice(2,4);//3番目から4番目まで
 >let array4 = array.slice(); //全部
+
+  
+#配列のコピーについて
+JavaScriptで注意が必要なことの１つが配列やオブジェクトのコピーです。
+配列をコピーする場合、配列を別の変数にそのまま代入することはNGです。
+###NG例
+>var original = ['A', 'B', 'C'];
+>var cloned = original;
+この場合、clonedの内容を書き換えた場合でも、originalの内容も変更されてしまいます。
+>cloned[2] = 'Z';
+>console.log(original); //['A', 'B', 'Z']
+>console.log(cloned); //['A', 'B', 'Z']
+
+普通の数値などの変数の場合、別変数に代入すれば完全に別物として扱われます。
+しかし配列（あるいはオブジェクト）の場合は
+・深い（ディープ）コピー【Deep Copy】
+・浅い（シャロー）コピー【Shallow Copy】
+の２種類があります。
+シャローコピーの場合はオリジナル配列とクローン配列は
+同じ参照（データのある場所）を共有しているため
+一方を変更すればもう一方も変更されてしまいます。
+  
+【JavaScriptで配列をコピーする”本当に”正しい方法】
+https://pisuke-code.com/js-correct-way-of-array-copy/
+
+
+※今回、配列のコピーには、Array.slice(0)を使用した。
+【配列の指定した範囲の要素をコピーして新しい配列を作成する】
+https://www.javadrive.jp/javascript/array/index14.html
+
+他にも、配列をコピーする方法は、
+Array.from、[...array]、array.concat()、JSON.parse(JSON.stringify(array))、
+など複数あるらしく、また、元の配列には反映させないが、
+厳密にはDeep Copyではない、など、いろいろあるらしいがまだ未整理。
+  
+【Javascript配列のコピー方法(Deep/Shallow/代入)備忘録】
+https://qiita.com/tomson/items/2138a9aa2ae244686197
+
+  
+  
+  
+  
