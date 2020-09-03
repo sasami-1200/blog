@@ -31,6 +31,36 @@ var userName = user[plopaty]; ←〇値を取得できる
 https://qiita.com/masarufuruya/items/d29a567d0ca4bbfb00cb
 
 
+■論理和 (||) 演算子
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_OR
+--------------------
+１）Orとして使う。
+if(a === 1 || b === 1){
+  //処理
+}
+--------------------
+２)構文として使う
+>expr1 || expr2
+expr1 が true に変換できる場合は expr1 を返し、それ以外の場合は expr2 を返します。
+
+false に変換されうる式の例を示します。
+>null、NaN、0、空文字列 ("" または '' または ``)、undefined
+
+例）
+>var text = "あいうえおあいうえお" ;
+>var targetStr = "あ" ;
+>var count = ( text.match( new RegExp( targetStr, "g" ) ) || [] ).length ;
+文字列textに、文字targetStrが含まれていた場合はその文字を抽出して配列で返し、
+文字列textに、文字targetStrが含まれていない場合（null）は空の配列（[]）を返す。
+
+※【text.match(new RegExp(targetStr,"g"))||[]】を囲う()は、即時関数なのか？
+
+https://qiita.com/katsukii/items/cfe9fd968ba0db603b1e
+https://wp-p.info/tpl_rep.php?cat=js-intermediate&fl=r11
+https://wp-p.info/tpl_rep.php?cat=js-intermediate&fl=r10
+https://wp-p.info/tpl_rep.php?cat=js-intermediate&fl=r9
+https://qiita.com/ukiuni@github/items/5f3d8620187905aea3d4#8-function%E5%89%8D%E3%81%AE%E5%A4%89%E3%81%AA%E8%A8%98%E5%8F%B7
+--------------------
 
 
 ##fetchでDOG APIで犬の画像を取得して表示してみた
