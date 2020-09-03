@@ -180,6 +180,33 @@ Array.isArray(判定する値); -> true/false
 map() メソッドは、与えられた関数を配列のすべての要素に対して呼び出し、その結果からなる新しい配列を生成する。
 >const array1 = [1, 4, 9, 16];
 >const map1 = array1.map(x => x * 2);
+  
+>配列データ.map( function( value, index, array ) {
+>  //処理
+>});  
+「value」は、配列の値、「index」は、配列のインデックス番号、「array」は、現在処理している配列
+
+##Array.join( separator );
+配列を連結して文字列を返す。
+>['a','i','u'].join('');//aiu
+
+例題）
+https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/javascript
+  
+>function duplicateEncode(word){
+>  return word
+>    .toLowerCase()　//文字列を小文字に変換して
+>    .split('')　//配列に変換して
+>    .map( function (a, i, w) {
+>      return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'  //配列【w】中で、各要素【a】が最初に現れる位置【w.indexOf(a)】と、最後に現れる位置【w.lastIndexOf(a)】が同じなら'('、異なれば')'に配列を置き換える。
+>    })
+>    .join(''); //要素を'('か')'に置き換えた配列を連結して文字列にする。
+>}
+
+
+
+
+
 
 ##Array.filter()
 filter() メソッドは、与えられた関数によって実装されたテストに合格したすべての配列からなる新しい配列を生成します。
