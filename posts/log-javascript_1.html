@@ -176,6 +176,14 @@ Number.isInteger(判定する値); -> true/false
 ##配列かどうか判定
 Array.isArray(判定する値); -> true/false
 
+##String.match(正規表現);
+文字列中の正規表現にマッチする文字を配列として返す。
+>const paragraph = 'The quick brown fox jumps over the lazy dog. It barked.';
+>const regex = /[A-Z]/gi;
+>const found = paragraph.match(regex);
+>// ["T", "h", "e", "q", "u", "i", "c", "k", "b", "r", "o", "w", "n", "f", "o", "x", "j", "u", "m", "p", "s", "o", "v", "e", "r", "t", "h", "e", "l", "a", "z", "y", "d", "o", "g", "I", "t", "b", "a", "r", "k", "e", "d"]
+  
+  
 ##Array.map()
 map() メソッドは、与えられた関数を配列のすべての要素に対して呼び出し、その結果からなる新しい配列を生成する。
 >const array1 = [1, 4, 9, 16];
