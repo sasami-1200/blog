@@ -361,5 +361,30 @@ https://qiita.com/tomson/items/2138a9aa2ae244686197
 
   
   
+#複数の文字を一括で置換する
+const kanaSortMap = {
+	'ガ': 'カ', 'ギ': 'キ', 'グ': 'ク', 'ゲ': 'ケ', 'ゴ': 'コ',
+	'ザ': 'サ', 'ジ': 'シ', 'ズ': 'ス', 'ゼ': 'セ', 'ゾ': 'ソ',
+	'ダ': 'タ', 'ヂ': 'チ', 'ヅ': 'ツ', 'デ': 'テ', 'ド': 'ト',
+	'バ': 'ハ', 'ビ': 'ヒ', 'ブ': 'フ', 'ベ': 'ヘ', 'ボ': 'ホ',
+	'パ': 'ハ', 'ピ': 'ヒ', 'プ': 'フ', 'ペ': 'ヘ', 'ポ': 'ホ',
+	'ヴ': 'ウ', 'ヷ': 'ワ', 'ヺ': 'ヲ',
+	'ァ': 'ア', 'ィ': 'イ', 'ゥ': 'ウ', 'ェ': 'エ', 'ォ': 'オ',
+	'ッ': 'ツ', 'ャ': 'ヤ', 'ュ': 'ユ', 'ョ': 'ヨ'
+};
+const kanaSortReg = new RegExp('(' + Object.keys(kanaSortMap).join('|') + ')', 'g');
+let debug;
+
+
+//ソート用カナ置換
+Object.assign(String.prototype, {
+	repSortKana(){return this.replace(kanaSortReg, function (match) {
+        return kanaSortMap[match];
+    })}
+});
+
+
+storeKana = char.formatChar(getText(worksheet[utils.encode_cell({c:2, r:i})])).repSortKana();//storeKana ソート用カナ置換
+
   
   
