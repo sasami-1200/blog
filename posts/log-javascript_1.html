@@ -389,4 +389,39 @@ Object.assign(String.prototype, {
 storeKana = char.formatChar(getText(worksheet[utils.encode_cell({c:2, r:i})])).repSortKana();//storeKana ソート用カナ置換
 
   
-  
+//半角・全角変換
+// 全→半
+let res = str.replace(hanReg, (match) => {
+	return String.fromCharCode(match.charCodeAt(0) - 0xFEE0);
+})
+// 半→全
+.replace(zenReg, (match) => {
+	return String.fromCharCode(match.charCodeAt(0) + 0xFEE0);
+})
+■JavaScript 文字コードを取得する(charCodeAt)
+https://itsakura.com/js-charcodeat
+
+■JavaScript Unicodeから文字を取得(fromCodePoint)
+https://itsakura.com/js-fromcodepoint
+
+■【JavaScript入門】replaceの文字列置換・正規表現の使い方まとめ！
+https://www.sejuku.net/blog/21107
+
+■【JavaScript入門】4つのパターンで理解する正規表現の使い方まとめ！
+https://www.sejuku.net/blog/20973
+
+■【JavaScript入門】RegExp(正規表現)の使い方と活用事例！
+https://www.sejuku.net/blog/24896
+
+
+
+#node.jsEJSの読み込モジュール
+const fs = require('fs-extra');
+const path = require('path');
+const program = require('commander');
+const winston = require('winston');
+const xlsx = require('xlsx');
+const utils = xlsx.utils;
+const ejs = require('ejs');
+const jconv = require('jconv');
+const char = require('./mod_char');
